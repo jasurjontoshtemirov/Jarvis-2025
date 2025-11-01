@@ -1,23 +1,60 @@
-# Ignore the envJarvis directory
-# match common casings
-/envjarvis/
-/envJarvis/
-
-# Ignore any envJarvis backups
-/envJarvis_backup/
-
-# Ignore Python cache and compiled files
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# Ignore contact.csv
-contacts.csv
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+envJarvis/
 
-# Ignore jarvis.db
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jarvis specific
+backend/cookie.json
 jarvis.db
+*.log
 
-# Ignore Python bytecode files in backend
-/backend/__pycache__/ 
+# Audio files (optional)
+*.wav
+*.mp3
+*.ogg
 
-# Ignore backend cookie.json
-/backend/cookie.json
+# Test files
+test_*.py
+debug_*.py

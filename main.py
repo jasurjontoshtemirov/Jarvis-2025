@@ -15,18 +15,24 @@ def start():
     @eel.expose
     def init():
         eel.hideLoader()
-        speak("Welcome to Jarvis")
-        speak("Ready for Face Authentication")
-        flag = recoganize.AuthenticateFace()
-        if flag ==1:
-            speak("Face recognized successfully")
-            eel.hideFaceAuth()
-            eel.hideFaceAuthSuccess()
-            speak("Welcome to Your Assistant")
-            eel.hideStart()
-            play_assistant_sound()
-        else:
-            speak("Face not recognized. Please try again")
+        speak("Jarvisga xush kelibsiz!")
+        
+        # Yuz tanish qismini vaqtincha o'tkazib yuborish
+        try:
+            flag = recoganize.AuthenticateFace()
+            if flag == 1:
+                speak("Yuz muvaffaqiyatli tanildi")
+            else:
+                speak("Yuz tanish o'tkazib yuborildi")
+        except Exception as e:
+            print(f"Yuz tanish xatosi: {e}")
+            speak("Yuz tanish o'tkazib yuborildi, ovozli yordamchi bilan davom etamiz")
+        
+        eel.hideFaceAuth()
+        eel.hideFaceAuthSuccess()
+        speak("Jarvis hizmatingizga tayyor!")
+        eel.hideStart()
+        play_assistant_sound()
         
     os.system('start msedge.exe --app="http://127.0.0.1:8000/index.html"')
     
